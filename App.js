@@ -1,114 +1,77 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
+import React, {Component} from 'react';
+import {SafeAreaView, ScrollView, View, Image, Text} from 'react-native';
+import {Button, Input} from './src/components';
 
-import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
-
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-const App: () => React$Node = () => {
-  return (
-    <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          <Header />
-          {global.HermesInternal == null ? null : (
-            <View style={styles.engine}>
-              <Text style={styles.footer}>Engine: Hermes</Text>
-            </View>
-          )}
-          <View style={styles.body}>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Step One</Text>
-              <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.js</Text> to change this
-                screen and then come back to see your edits.
+export default class App extends Component {
+  render() {
+    return (
+      <SafeAreaView
+        style={{
+          flex: 1,
+        }}>
+        <ScrollView contentContainerStyle={{flex: 1}}>
+          <View
+            style={{
+              flex: 1,
+              backgroundColor: 'black',
+              justifyContent: 'center',
+            }}>
+            <Image
+              style={{width: '35%', height: '35%', marginLeft: '10%'}}
+              source={require('./src/images/logo.png')}
+            />
+          </View>
+          <View style={{flex: 2, backgroundColor: 'black', paddingLeft: '10%'}}>
+            <Text
+              style={{
+                color: 'white',
+                fontWeight: 'bold',
+                fontSize: 32,
+                marginTop:'5%'
+              }}>
+              Sign In
+            </Text>
+            <Input placeholder={'Email or phone number'} style={{marginTop:'7%'}} />
+            <Input placeholder={'Password'} style={{marginTop:'4%'}}/>
+            <Button
+              text={'Sign In'}
+              style={{marginTop:'10%'}}
+              onPress={() => {
+                console.log('tusa basildi');
+              }}
+            />
+          </View>
+          <View
+            style={{
+              flex: 2,
+              backgroundColor: 'black',
+              justifyContent: 'center',
+            }}>
+            <View style={{flexDirection: 'row'}}>
+              <Image
+                style={{width: 20, height: 20, marginLeft: '10%'}}
+                source={require('./src/images/facebook.png')}
+              />
+              <Text style={{color: 'gray', marginLeft: '3%'}}>
+                Login with Facebook
               </Text>
             </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes</Text>
-              <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
+            <Text
+              style={{
+                fontSize: 16,
+                color: 'gray',
+                marginLeft: '10%',
+                marginTop: '10%',
+              }}>
+              New to Netflix?{' '}
+              <Text style={{color: 'white', fontWeight: 'bold'}}>
+                Sign up now
               </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
-              <Text style={styles.sectionDescription}>
-                <DebugInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Learn More</Text>
-              <Text style={styles.sectionDescription}>
-                Read the docs to discover what to do next:
-              </Text>
-            </View>
-            <LearnMoreLinks />
+              .
+            </Text>
           </View>
         </ScrollView>
       </SafeAreaView>
-    </>
-  );
-};
-
-const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
-  },
-  engine: {
-    position: 'absolute',
-    right: 0,
-  },
-  body: {
-    backgroundColor: Colors.white,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
-  },
-});
-
-export default App;
+    );
+  }
+}
