@@ -13,7 +13,7 @@ const Input = (props) => (
         height: '17%',
         borderRadius: 4,
         color: 'white',
-        paddingLeft: '6%',
+        paddingLeft: '5%',
       },
       props.style,
     ]}
